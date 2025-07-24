@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
+import 'view/paint_visualizer_screen.dart';
 
 void main() => runApp(MyApp());
 
@@ -203,6 +204,14 @@ class _AnalyticsScreenState extends State<AnalyticsScreen> {
             : errorMessage != null
             ? Center(child: Text(errorMessage!, style: TextStyle(color: Colors.red, fontSize: 16)))
             : buildAnalyticsContent(),
+        floatingActionButton: FloatingActionButton(
+          child: const Icon(Icons.brush),
+          onPressed: () {
+            Navigator.of(context).push(
+              MaterialPageRoute(builder: (_) => const PaintVisualizerScreen()),
+            );
+          },
+        ),
       ),
     );
   }
